@@ -16,7 +16,7 @@ jobs:
       id: cache
       with:
         path: /tmp/datacache
-        key: macOSbuild2e1ee5361655b2e71f069e97b296631a5dafde4856060bc44d591a42d87771071234
+        key: 1234567890123456789012345678901234567890
     - if: steps.cache.outputs.cache-hit != 'true'
       run: |
         rm -rf /tmp/datacache

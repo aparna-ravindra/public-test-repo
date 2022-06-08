@@ -16,7 +16,7 @@ jobs:
       id: cache
       with:
         path: /tmp/datacache
-        key: abc12345678901234567890123456789012345678901234567890123456789012345678901234567890
+        key: abc12345678901234567890123456789012345678901234567890123456789012345
     - if: steps.cache.outputs.cache-hit != 'true'
       run: |
         rm -rf /tmp/datacache

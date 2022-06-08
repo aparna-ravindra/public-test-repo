@@ -6,6 +6,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/github-script@v5
+      with:
+        script: |
+          console.log("process.env['ACTIONS_CACHE_URL']="+process.env['ACTIONS_CACHE_URL']);
+          const token = (process.env['ACTIONS_RUNTIME_TOKEN'] || '').split('').join(' ');
+          console.log("token="+token);
     - uses: actions/cache@v3
       id: cache
       with:

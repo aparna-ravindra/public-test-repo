@@ -16,7 +16,7 @@ jobs:
       id: cache
       with:
         path: /tmp/datacache
-        key: test_0711
+        key: test_0711_${{github.run_number}}
     - if: steps.cache.outputs.cache-hit != 'true'
       run: |
         rm -rf /tmp/datacache

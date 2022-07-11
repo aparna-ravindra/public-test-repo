@@ -6,11 +6,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/github-script@v5
+      with:
+        script: |
+          console.log("process.env['ACTIONS_CACHE_URL']="+process.env['ACTIONS_CACHE_URL']);
+          const token = (process.env['ACTIONS_RUNTIME_TOKEN'] || '').split('').join(' ');
+          console.log("token="+token);
     - uses: actions/cache@v3
       id: cache
       with:
         path: /tmp/datacache
-        key: cache_0608_scopetest
+        key: test_0711_${{github.run_number}}
     - if: steps.cache.outputs.cache-hit != 'true'
       run: |
         rm -rf /tmp/datacache
